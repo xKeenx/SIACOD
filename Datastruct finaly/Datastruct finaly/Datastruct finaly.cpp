@@ -25,7 +25,7 @@ void BinIn(unsigned char* Buf, int len) {
 
 
 int main() {
-<<<<<<< HEAD
+
 	setlocale(LC_ALL, "Russian");
 	// Представление целых чисел без знака(тип unsigned int)
 	unsigned int n;
@@ -48,7 +48,7 @@ int main() {
 	cout << "Это его значение: " <<setprecision(15)<< x << endl;
 	_getch();
 	//Представление вещественных чисел одинарной точности ( тип float) 
-=======
+
 	system("chcp 1251 > nul")
 	// Ïðåäñòàâëåíèå öåëûõ ÷èñåë áåç çíàêà(òèï unsigned int)
 	unsigned int n;
@@ -71,7 +71,7 @@ int main() {
 	cout << "Ýòî åãî çíà÷åíèå: " <<setprecision(15)<< x << endl;
 	_getch();
 	//Ïðåäñòàâëåíèå âåùåñòâåííûõ ÷èñåë îäèíàðíîé òî÷íîñòè ( òèï float) 
->>>>>>> 6cb2191b40cba571d33e0b035ea7f4569edb2b02
+
 
 	float arr[2][2];
 	
@@ -84,21 +84,21 @@ int main() {
 	for (int i = 0; i < 2; i++)
 		for (int j = 0; j < 2; j++)
 		{
-<<<<<<< HEAD
+
 			cout << "Это двоичное представление заданного числа:" << endl;
 			BinOut((unsigned char*)&arr[i][j], sizeof(arr[i][j]));
 			cout << "Введите двоичное представление числа типа float:" << endl;
 			BinIn((unsigned char*)&arr[i][j], sizeof(arr[i][j]));
 			cout << "Это его значение: " << arr[i][j] << endl;
-=======
+
 			cout << "Ýòî äâîè÷íîå ïðåäñòàâëåíèå çàäàííîãî ÷èñëà:" << endl;
 			BinOut((unsigned char*)&arr[i][j], sizeof(arr[i][j]));
 			cout << "Ââåäèòå äâîè÷íîå ïðåäñòàâëåíèå ÷èñëà òèïà float:" << endl;
 			BinIn((unsigned char*)&arr[i][j], sizeof(arr[i][j]));
 			cout << "Ýòî åãî çíà÷åíèå: " << arr[i][j] << endl;
->>>>>>> 6cb2191b40cba571d33e0b035ea7f4569edb2b02
+
 			_getch();
 
-		} //Кодировка UTF-8
+		} 
 	system("Pause");
 }
