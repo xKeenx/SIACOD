@@ -66,6 +66,6 @@ int main() {
 			cout << "Это его значение: " << arr[i][j] << endl;
 			_getch();
 
-		}
+		} //Кодировка UTF-8
 	system("Pause");
 }
