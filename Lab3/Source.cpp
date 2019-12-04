@@ -195,7 +195,41 @@ public:
 
 	}
 
+	int blok__search(int key) {
 
+		int rezult = -1;
+		int num = (1) / 10.0 * SIZE;
+
+		for (int i = num; i <= SIZE && ++count; i += num) {
+
+			while (++count && key <= arr[i - 1]) {
+
+				for (int j = i - num; j <= i && ++count; ++j)
+
+					if (++count && arr[j] == key) {
+
+						cout << " Индекс данного элемента : " << j + 1 << endl;
+
+						cout << " Время работы блочного поиска : " << count << endl << endl;
+
+						count = 0;
+
+						return j + 1;
+
+					}
+
+			}
+
+		}
+
+		cout << " Индекс данного элемента : " << rezult << endl;
+		cout << " Время работы блочного поиска : " << count << endl << endl;
+
+		count = 0;
+
+		return -1;
+
+	}
 
 
 	~Searchs()
