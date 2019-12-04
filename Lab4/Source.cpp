@@ -21,7 +21,6 @@ public:
 	void push_front(T data);
 
 
-
 private:
 	template<typename T>
 	class Node
@@ -154,7 +153,6 @@ T List<T>::pop_back()
 
 	return data;
 }
-
 
 
 template<typename T>
