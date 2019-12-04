@@ -248,3 +248,24 @@ private:
 
 
 int Searchs::count = 0;
+
+
+int main()
+{
+	system("chcp 1251 > null");
+	srand(time(0));
+
+	Searchs obj;
+
+	int Size = 200;
+
+	obj.set_array(false);
+	obj.linear_search(Size);
+	obj.fast_linear_search(Size);
+	obj.binary_search(Size);
+	obj.blok__search(Size);
+
+
+
+
+}
