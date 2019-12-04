@@ -158,6 +158,43 @@ public:
 
 	}
 
+	void binary_search(int key) {
+
+		int low = 0;
+		int high = SIZE - 1;
+		int rezult = -1;
+
+		while (low <= high && ++count) {
+
+			int mid = (low + high) / 2;
+
+			if (key == arr[mid] && ++count) {
+
+				rezult = mid + 1;
+				break;
+
+			}
+			else if (key > arr[mid] && ++count) {
+
+				low = mid + 1;
+
+			}
+			else {
+
+				high = mid - 1;
+				++count;
+
+			}
+
+		}
+
+		cout << " Индекс данного элемента : " << rezult << endl;
+		cout << " Время работы бинарного поиска : " << count << endl << endl;
+
+		count = 0;
+
+	}
+
 
 
 
