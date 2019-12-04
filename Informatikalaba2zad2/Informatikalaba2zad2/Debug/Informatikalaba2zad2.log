@@ -1,4 +1,0 @@
-﻿  Source.cpp
-c:\users\vladg\source\repos\informatikalaba2zad2\informatikalaba2zad2\source.cpp(37): warning C4838: преобразование из "double" в "int" требует сужающего преобразования
-c:\users\vladg\source\repos\informatikalaba2zad2\informatikalaba2zad2\source.cpp(37): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-  Informatikalaba2zad2.vcxproj -> C:\Users\vladg\Source\Repos\Informatikalaba2zad2\Debug\Informatikalaba2zad2.exe
