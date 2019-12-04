@@ -205,3 +205,73 @@ void List<T>::push_front(T data)
 	Size++;
 
 }
+
+template<typename T>
+class Queue {
+private:
+	List<T> container;
+
+public:
+
+	void push(T data)
+	{
+		container.push_front(data);
+	}
+	T pop()
+	{
+		return container.pop_front();
+	}
+	bool isEmpty()
+	{
+		return container.GetSize() == 0;
+	}
+
+};
+
+template <typename T>
+class Stack {
+
+private:
+
+	T arr[1000];
+	int top;
+
+public:
+
+	void initstack()
+	{
+
+		top = 0;
+	}
+
+	void push(T value)
+	{
+		arr[top] = value;
+		top += 1;
+
+
+	}
+
+
+
+	T pop()
+	{
+
+		top -= 1;
+		T result = arr[top];
+		arr[top] = T();
+
+		return result;
+	}
+
+	bool empty()
+	{
+		return top == 0;
+	}
+	T readtop()
+	{
+		return arr[top - 1];
+
+	}
+
+};
