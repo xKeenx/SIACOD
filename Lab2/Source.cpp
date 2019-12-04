@@ -218,6 +218,235 @@ public:
 		else cout << endl << " Так же долговато " << endl << endl;;
 
 	}
+	void shellSort() {
+
+		cout << " \t\tСортировка Шелла\t\t\n " << endl;
+
+		int* arrShell = new int[SIZE];
+
+		for (int i = 0; i < SIZE; ++i) arrShell[i] = arr[i];
+
+		int d = SIZE;
+		d /= 2;
+
+
+		while (d && ++count) {
+
+			for (int i = 1; i < SIZE - d; ++i, ++count) {
+
+				int j = i;
+
+				while (j >= 0 && arrShell[j] > arrShell[j + d] && ++count) {
+
+					swap(arrShell[j], arrShell[j + d]);
+					++count;
+					--j;
+
+				}
+			}
+
+			d = d / 2;
+
+		}
+
+
+		arrTime[3] = count;
+
+		if (SIZE <= 1000) {
+
+			cout << "   Отсортированный массив : ";
+
+			for (int i = 0; i < SIZE; ++i) cout << arrShell[i] << " ";
+
+		}
+
+		cout << endl << " Время работы сортировки : " << count;
+
+		count = 0;
+
+		cout << endl << endl;
+
+		delete[]arrShell;
+
+	}
+
+	void quickSort() {
+
+		cout << " \t\tБыстрая сортировка\t\t\n " << endl;
+
+		int* arrQSort = new int[SIZE];
+
+		for (int i = 0; i < SIZE; ++i) arrQSort[i] = arr[i];
+
+
+		long	long i, j;
+		long long lb, ub;
+
+		long  long  lbstack[2048], ubstack[2048];
+		long long  stackpos = 1;
+		long long ppos;
+		int pivot;
+		int temp;
+
+		lbstack[1] = 0;
+		ubstack[1] = SIZE - 1;
+
+		do {
+
+			lb = lbstack[stackpos];
+			ub = ubstack[stackpos];
+			--stackpos;
+
+			do {
+
+				ppos = (lb + ub) >> 1;
+				i = lb; j = ub; pivot = arrQSort[ppos];
+
+				do {
+
+					while (arrQSort[i] < pivot && ++count) ++i;
+					while (pivot < arrQSort[j] && ++count) --j;
+
+					if (i <= j && ++count) {
+
+						swap(arrQSort[i], arrQSort[j]);
+						++count;
+						++i;
+						--j;
+
+					}
+
+				} while (i <= j && ++count);
+
+
+				if (i < ppos && ++count) {
+
+					if (i < ub && ++count) {
+
+						++stackpos;
+						lbstack[stackpos] = i;
+						ubstack[stackpos] = ub;
+						++count;
+
+					}
+
+					ub = j;
+
+
+				}
+				else {
+
+					if (j > lb && ++count) {
+
+						++stackpos;
+						lbstack[stackpos] = lb;
+						ubstack[stackpos] = j;
+						++count;
+
+					}
+
+					lb = i;
+
+				}
+
+			} while (lb < ub && ++count);
+
+		} while (stackpos != 0 && ++count);
+
+
+		arrTime[4] = count;
+
+		if (SIZE <= 1000) {
+
+			cout << "   Отсортированный массив : ";
+
+			for (int i = 0; i < SIZE; ++i) cout << arrQSort[i] << " ";
+
+		}
+
+		cout << endl << " Время работы сортировки : " << count;
+
+		count = 0;
+
+		cout << endl << endl;
+
+
+		delete[]arrQSort;
+
+	}
+
+	void heapify(int arrHeap[], int SIZE, int i) {
+
+		int largest = i;
+		int left = 2 * i + 1;
+		int right = 2 * i + 2;
+
+		if (left < SIZE && arrHeap[left] > arrHeap[largest] && ++count)
+			largest = left;
+
+		if (right < SIZE && arrHeap[right] > arrHeap[largest] && ++count)
+			largest = right;
+
+		if (largest != i && ++count) {
+
+			swap(arrHeap[i], arrHeap[largest]);
+			++count;
+
+			heapify(arrHeap, SIZE, largest);
+
+		}
+	}
+
+	void buildHeap(int arrHeap[], int SIZE) {
+
+		for (int i = SIZE / 2 - 1; i >= 0; i--, ++count)
+			heapify(arrHeap, SIZE, i);
+
+		for (int i = SIZE - 1; i >= 0; i--, ++count) {
+
+			swap(arrHeap[0], arrHeap[i]);
+			++count;
+			heapify(arrHeap, i, 0);
+
+		}
+	}
+
+	void heapSort() {
+
+		cout << " \t\tСортировка кучей\t\t\n " << endl;
+
+		int* arrHeap = new int[SIZE];
+
+		for (int i = 0; i < SIZE; ++i) arrHeap[i] = arr[i];
+
+		buildHeap(arrHeap, SIZE);
+
+		arrTime[5] = count;
+
+		if (SIZE <= 1000) {
+
+			cout << "   Отсортированный массив : ";
+
+			for (int i = 0; i < SIZE; ++i) cout << arrHeap[i] << " ";
+
+		}
+
+		cout << endl << " Время работы сортировки : " << count;
+
+		count = 0;
+
+		cout << endl << endl;
+
+		delete[]arrHeap;
+
+	}
+
+	~Sorts() {
+
+		delete[]arr;
+		delete[]arrTime;
+
+	}
 
 	private:
 
@@ -242,6 +471,10 @@ int main()
 	obj.SetArr(50000);
 	obj.bubbleSort();
 	obj.insertinSort();
+	obj.selectionSort();
+	obj.shellSort();
+	obj.quickSort();
+	obj.heapSort();
 	system("pause");
 }
 
